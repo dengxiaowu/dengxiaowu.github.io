@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>DXWu</title>
+  <title>git开发使用及部署 | DXWu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="DXWu">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git开发使用及部署">
+<meta property="og:url" content="http://yoursite.com/2017/04/04/git开发使用及部署/index.html">
 <meta property="og:site_name" content="DXWu">
+<meta property="og:description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
+<meta property="og:updated_time" content="2017-04-04T05:33:13.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DXWu">
+<meta name="twitter:title" content="git开发使用及部署">
+<meta name="twitter:description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
   
     <link rel="alternate" href="/atom.xml" title="DXWu" type="application/atom+xml">
   
@@ -63,55 +68,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-mac install yaf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/04/mac install yaf/" class="article-date">
-  <time datetime="2017-04-04T05:12:01.715Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/mac install yaf/">mac install yaf</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在win使用过yaf框架，第一次在mac安装yaf扩展，所以要记录下。</p>
-<h3 id="1-下载-yaf-最新的源代码wget-http-pecl-php-net-get-yaf-3-0-2-tgz"><a href="#1-下载-yaf-最新的源代码wget-http-pecl-php-net-get-yaf-3-0-2-tgz" class="headerlink" title="1. 下载 yaf 最新的源代码wget http://pecl.php.net/get/yaf-3.0.2.tgz"></a>1. 下载 yaf 最新的源代码wget <a href="http://pecl.php.net/get/yaf-3.0.2.tgz" target="_blank" rel="external">http://pecl.php.net/get/yaf-3.0.2.tgz</a></h3><h3 id="2-解压（注明：要在下载文件的目录下）tar-zxvf-yaf-3-0-2-tgz-amp-amp-cd-yaf-3-0-2"><a href="#2-解压（注明：要在下载文件的目录下）tar-zxvf-yaf-3-0-2-tgz-amp-amp-cd-yaf-3-0-2" class="headerlink" title="2. 解压（注明：要在下载文件的目录下）tar zxvf yaf-3.0.2.tgz &amp;&amp; cd yaf-3.0.2"></a>2. 解压（注明：要在下载文件的目录下）tar zxvf yaf-3.0.2.tgz &amp;&amp; cd yaf-3.0.2</h3><h3 id="3-安装yaf扩展（注明：要在解压后的文件目录内下）"><a href="#3-安装yaf扩展（注明：要在解压后的文件目录内下）" class="headerlink" title="3. 安装yaf扩展（注明：要在解压后的文件目录内下）"></a>3. 安装yaf扩展（注明：要在解压后的文件目录内下）</h3><pre><code>1: /usr/local/bin/phpize（注明：/usr/local/bin/ 是PHP的bin目录）
-2: ./configure –with-php-config=/usr/local/bin/php-config
-3：make
-4：make test
-5：sudo make install
-</code></pre><h3 id="4-php-ini添加yaf-sovim-xxx-php-ini-注明：-usr-local-etc-php-7-0-是PHP的php-ini-目录"><a href="#4-php-ini添加yaf-sovim-xxx-php-ini-注明：-usr-local-etc-php-7-0-是PHP的php-ini-目录" class="headerlink" title="4. php.ini添加yaf.sovim xxx/php.ini (注明：/usr/local/etc/php/7.0 是PHP的php.ini 目录)"></a>4. php.ini添加yaf.sovim xxx/php.ini (注明：/usr/local/etc/php/7.0 是PHP的php.ini 目录)</h3><pre><code>在php.ini文件最后添加 yaf.so
-extension=yaf.so
-</code></pre><h3 id="5-重启PHP"><a href="#5-重启PHP" class="headerlink" title="5.重启PHP"></a>5.重启PHP</h3><pre><code>killall php-fpm
-php-fpm -D
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/mac install yaf/" data-id="cj1340f7u0001a4os3xienpo9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-git开发使用及部署" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-git开发使用及部署" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/04/git开发使用及部署/" class="article-date">
   <time datetime="2017-04-04T05:11:37.484Z" itemprop="datePublished">2017-04-04</time>
@@ -124,8 +81,8 @@ php-fpm -D
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/git开发使用及部署/">git开发使用及部署</a>
+    <h1 class="article-title" itemprop="name">
+      git开发使用及部署
     </h1>
   
 
@@ -182,100 +139,28 @@ git checkout hot-fix-branch
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-建博客心得" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/04/建博客心得/" class="article-date">
-  <time datetime="2017-04-04T05:11:13.468Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/04/04/建博客心得/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/建博客心得/">建博客心得</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很开心经过几天的折腾，总于把自己的技术博客搭建起来了。用了Hexo博客框架。<br>搭建的过程中遇到了不少问题。有些目前还没解决，先让博客运行起来。以后再慢慢解决各个问题吧。</p>
-<h2 id="主要笔记："><a href="#主要笔记：" class="headerlink" title="主要笔记："></a>主要笔记：</h2><h3 id="1-config-yml配置-多平台配置deploy"><a href="#1-config-yml配置-多平台配置deploy" class="headerlink" title="1._config.yml配置-多平台配置deploy:"></a>1._config.yml配置-多平台配置deploy:</h3><pre><code>type: git
-repo:
-github: https://github.com/dengxiaowu/dengxiaowu.github.io.git,master
-gitcafe: https://git.coding.net/dengxiaowu/dengxiaowu.git,master
-</code></pre><h3 id="2-三个基本的部署命令"><a href="#2-三个基本的部署命令" class="headerlink" title="2.三个基本的部署命令"></a>2.三个基本的部署命令</h3><pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre><h3 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3.域名解析"></a>3.域名解析</h3><p>我是在万网购买的域名，万网里的NDS解析是收费的，所以可以选择DSNlop或者Cloudxns 免费域名解析平台！注意域名要实名认证！<br>注意：<br>我用的是Cloudxns，比较稳定，还可以监控，总体来说非常不错！github.io 的部署解析后记得要在source/需要创建一个CNAME文件，填入自己个人的域名(不需要加上http)！但是我部署了coding，域名老是解析失败，后来停掉了。以后要解决这个问题。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj1340f820003a4osp0le9jg4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/04/hello-world/" class="article-date">
-  <time datetime="2017-04-04T03:31:48.944Z" itemprop="datePublished">2017-04-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          建博客心得
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2017/04/04/mac install yaf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mac install yaf</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/hello-world/" data-id="cj1340f7y0002a4os6u19e1pf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
