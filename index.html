@@ -65,6 +65,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-对比MySQL，什么场景MongoDB更适用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/06/对比MySQL，什么场景MongoDB更适用/" class="article-date">
+  <time datetime="2017-04-06T15:01:32.467Z" itemprop="datePublished">2017-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/对比MySQL，什么场景MongoDB更适用/">对比MySQL，什么场景MongoDB更适用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-更高的写入负载"><a href="#1-更高的写入负载" class="headerlink" title="1.更高的写入负载"></a>1.更高的写入负载</h3><p>默认情况下，MongoDB更侧重高数据写入性能，而非事务安全，MongoDB很适合业务系统中有大量“低价值”数据的场景。<br>    但是应当避免在高事务安全性的系统中使用MongoDB，除非能从架构设计上保证事务安全。</p>
+<h3 id="2-高可用性"><a href="#2-高可用性" class="headerlink" title="2.高可用性"></a>2.高可用性</h3><p>MongoDB的复副集(Master-Slave)配置非常简洁方便，此外，MongoDB可以快速响应的处理单节点故障，自动、安全的完成故障转移。这些特性使得MongoDB能在一个相对不稳定（如云主机）的环境中，保持高可用性。</p>
+<h3 id="3-数据量很大或者未来会变得很大"><a href="#3-数据量很大或者未来会变得很大" class="headerlink" title="3.数据量很大或者未来会变得很大"></a>3.数据量很大或者未来会变得很大</h3><p>依赖数据库(MySQL)自身的特性，完成数据的扩展是较困难的事，在MySQL中，当一个单达表到5-10GB时会出现明显的性能降级，<br>    此时需要通过数据的水平和垂直拆分、库的拆分完成扩展，使用MySQL通常需要借助驱动层或代理层完成这类需求。而MongoDB内建了多种数据分片的特性，可以很好的适应大数据量的需求。</p>
+<h3 id="4-基于位置的数据查询"><a href="#4-基于位置的数据查询" class="headerlink" title="4.基于位置的数据查询"></a>4.基于位置的数据查询</h3><p>MongoDB支持二维空间索引，因此可以快速及精确的从指定位置获取数据。</p>
+<h3 id="5-表结构不明确，且数据在不断变大"><a href="#5-表结构不明确，且数据在不断变大" class="headerlink" title="5.表结构不明确，且数据在不断变大"></a>5.表结构不明确，且数据在不断变大</h3><p>在一些传统RDBMS中，增加一个字段会锁住整个数据库/表，或者在执行一个重负载的请求时会明显造成其它请求的性能降级。<br>    通常发生在数据表大于1G的时候（当大于1TB时更甚）。 因MongoDB是文档型数据库，为非结构货的文档增加一个新字段是很快速的操作，并且不会影响到已有数据。另外一个好处当业务数据发生变化时，是将不在需要由DBA修改表结构。</p>
+<h3 id="6-没有DBA支持"><a href="#6-没有DBA支持" class="headerlink" title="6.没有DBA支持"></a>6.没有DBA支持</h3><p>如果没有专职的DBA，并且准备不使用标准的关系型思想（结构化、连接等）来处理数据，那么MongoDB将会是你的首选。MongoDB对于对像数据的存储非常方便，类可以直接序列化成JSON存储到MongoDB中。 但是需要先了解一些最佳实践，避免当数据变大后，由于文档设计问题而造成的性能缺陷。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/06/对比MySQL，什么场景MongoDB更适用/" data-id="cj16j9nje0008lsosbytcr8uy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-php7的重大新特性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/06/php7的重大新特性/" class="article-date">
@@ -121,7 +163,7 @@ $o = &amp; new className{}，不再支持这样的写法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/php7的重大新特性/" data-id="cj16ij8pu0007igosnmavutj5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/php7的重大新特性/" data-id="cj16j9nj40007lsos125f31j2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,7 +213,7 @@ $o = &amp; new className{}，不再支持这样的写法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/Nginx 和 Apache 各有什么优缺点/" data-id="cj16ij8p10000igos5cefjotu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/Nginx 和 Apache 各有什么优缺点/" data-id="cj16j9ni40000lsosy6t2f9ai" class="article-share-link">Share</a>
       
       
     </footer>
@@ -675,7 +717,7 @@ $o = &amp; new className{}，不再支持这样的写法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/PHP基础二/" data-id="cj16ij8pa0001igoslp3av8bg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/PHP基础二/" data-id="cj16j9nih0002lsosnogz0sbj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1061,7 +1103,7 @@ $o = &amp; new className{}，不再支持这样的写法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/PHP基础一/" data-id="cj16ij8pf0002igosszvn7juo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/PHP基础一/" data-id="cj16j9nic0001lsosw8090e8m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1114,7 +1156,7 @@ crontab文件的一些例子：
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/" data-id="cj16ij8pn0005igospuhqucg8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/" data-id="cj16j9nit0005lsoswy8r513z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1160,7 +1202,7 @@ php-fpm -D
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/mac install yaf/" data-id="cj16ij8pr0006igos2pc54y0s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/mac install yaf/" data-id="cj16j9nj00006lsosdcm8ajby" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1235,7 +1277,7 @@ git checkout hot-fix-branch
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/git开发使用及部署/" data-id="cj16ij8ph0003igos0f6v6ukt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/git开发使用及部署/" data-id="cj16j9nio0004lsos0ypp977l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1280,7 +1322,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj16ij8q20008igoswbcvzbc8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj16j9njh0009lsoslslq3y1u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1325,7 +1367,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/hello-world/" data-id="cj16ij8pj0004igosbe4npip9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/hello-world/" data-id="cj16j9nil0003lsospxh7r9u6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1365,6 +1407,10 @@ hexo deploy
       <ul>
         
           <li>
+            <a href="/2017/04/06/对比MySQL，什么场景MongoDB更适用/">对比MySQL，什么场景MongoDB更适用</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/06/php7的重大新特性/">php7的重大新特性</a>
           </li>
         
@@ -1378,10 +1424,6 @@ hexo deploy
         
           <li>
             <a href="/2017/04/06/PHP基础一/">PHP基础一</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/06/linux定时任务的设置 crontab/">linux定时任务的设置 crontab</a>
           </li>
         
       </ul>
