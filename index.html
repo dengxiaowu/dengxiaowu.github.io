@@ -65,6 +65,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux定时任务的设置 crontab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/06/linux定时任务的设置 crontab/" class="article-date">
+  <time datetime="2017-04-06T14:01:40.289Z" itemprop="datePublished">2017-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/linux定时任务的设置 crontab/">linux定时任务的设置 crontab</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。<br>几个基本的说明：</p>
+<h3 id="1-基本命令："><a href="#1-基本命令：" class="headerlink" title="1.基本命令："></a>1.基本命令：</h3><pre><code>crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。
+crontab -r : 删除目前的时程表
+crontab -l : 列出目前的时程表
+crontab file -u user-用指定的文件替代目前的crontab。
+</code></pre><h3 id="2-crontab-的格式说明：基本格式-："><a href="#2-crontab-的格式说明：基本格式-：" class="headerlink" title="2. crontab 的格式说明：基本格式 ："></a>2. crontab 的格式说明：基本格式 ：</h3><pre><code>※　　※　　※　　※ 　 ※ 　command
+分　 时　 日　 月　 周　 命令
+第1列表示分钟1～59 每分钟用～～ ～表示
+第2列表示小时1～23（0表示0点）
+第3列表示日期1～31
+第4列表示月份1～12
+第5列标识号星期0～6（0表示星期天）
+第6列要运行的命令
+crontab文件的一些例子：
+30 21 ※ ※ ※ /usr/local/etc/rc.d/lighttpd restart
+</code></pre><p>上面的例子表示每晚的21:30重启apache。</p>
+<h3 id="3-项目例子"><a href="#3-项目例子" class="headerlink" title="3.项目例子:"></a>3.项目例子:</h3><pre><code>php /data/web/service.snippetnews.com.ph/dev/D0.0.10/cli/index.php PushMsg index &gt;&gt; /data/logs/PushMsg.log 2&gt;&amp;1(日志位置)
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/" data-id="cj16h73an0001ssosij07k7b0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-mac install yaf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/04/mac install yaf/" class="article-date">
@@ -101,7 +154,7 @@ php-fpm -D
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/mac install yaf/" data-id="cj1340f7u0001a4os3xienpo9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/mac install yaf/" data-id="cj16h73b20003ssosizrz7370" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +229,7 @@ git checkout hot-fix-branch
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/git开发使用及部署/" data-id="cj1340f7l0000a4oss48aaoc5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/git开发使用及部署/" data-id="cj16h73ab0000ssos8xy1nx0g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +274,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj1340f820003a4osp0le9jg4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj16h73b40004ssosoh3ii4xv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,7 +319,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/hello-world/" data-id="cj1340f7y0002a4os6u19e1pf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/04/hello-world/" data-id="cj16h73as0002ssosivpjk5kz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,6 +357,10 @@ hexo deploy
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/06/linux定时任务的设置 crontab/">linux定时任务的设置 crontab</a>
+          </li>
         
           <li>
             <a href="/2017/04/04/mac install yaf/">mac install yaf</a>

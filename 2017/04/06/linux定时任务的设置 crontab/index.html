@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>建博客心得 | DXWu</title>
+  <title>linux定时任务的设置 crontab | DXWu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很开心经过几天的折腾，总于把自己的技术博客搭建起来了。用了Hexo博客框架。搭建的过程中遇到了不少问题。有些目前还没解决，先让博客运行起来。以后再慢慢解决各个问题吧。 主要笔记：1._config.yml配置-多平台配置deploy:type: git repo: github: https://github.com/dengxiaowu/dengxiaowu.github.io.git,mast">
+  <meta name="description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="建博客心得">
-<meta property="og:url" content="http://yoursite.com/2017/04/04/建博客心得/index.html">
+<meta property="og:title" content="linux定时任务的设置 crontab">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/index.html">
 <meta property="og:site_name" content="DXWu">
-<meta property="og:description" content="很开心经过几天的折腾，总于把自己的技术博客搭建起来了。用了Hexo博客框架。搭建的过程中遇到了不少问题。有些目前还没解决，先让博客运行起来。以后再慢慢解决各个问题吧。 主要笔记：1._config.yml配置-多平台配置deploy:type: git repo: github: https://github.com/dengxiaowu/dengxiaowu.github.io.git,mast">
-<meta property="og:updated_time" content="2017-04-04T05:27:42.607Z">
+<meta property="og:description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
+<meta property="og:updated_time" content="2017-04-06T14:05:19.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="建博客心得">
-<meta name="twitter:description" content="很开心经过几天的折腾，总于把自己的技术博客搭建起来了。用了Hexo博客框架。搭建的过程中遇到了不少问题。有些目前还没解决，先让博客运行起来。以后再慢慢解决各个问题吧。 主要笔记：1._config.yml配置-多平台配置deploy:type: git repo: github: https://github.com/dengxiaowu/dengxiaowu.github.io.git,mast">
+<meta name="twitter:title" content="linux定时任务的设置 crontab">
+<meta name="twitter:description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
   
     <link rel="alternate" href="/atom.xml" title="DXWu" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-建博客心得" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-linux定时任务的设置 crontab" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/04/建博客心得/" class="article-date">
-  <time datetime="2017-04-04T05:11:13.468Z" itemprop="datePublished">2017-04-04</time>
+    <a href="/2017/04/06/linux定时任务的设置 crontab/" class="article-date">
+  <time datetime="2017-04-06T14:01:40.289Z" itemprop="datePublished">2017-04-06</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      建博客心得
+      linux定时任务的设置 crontab
     </h1>
   
 
@@ -90,20 +90,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很开心经过几天的折腾，总于把自己的技术博客搭建起来了。用了Hexo博客框架。<br>搭建的过程中遇到了不少问题。有些目前还没解决，先让博客运行起来。以后再慢慢解决各个问题吧。</p>
-<h2 id="主要笔记："><a href="#主要笔记：" class="headerlink" title="主要笔记："></a>主要笔记：</h2><h3 id="1-config-yml配置-多平台配置deploy"><a href="#1-config-yml配置-多平台配置deploy" class="headerlink" title="1._config.yml配置-多平台配置deploy:"></a>1._config.yml配置-多平台配置deploy:</h3><pre><code>type: git
-repo:
-github: https://github.com/dengxiaowu/dengxiaowu.github.io.git,master
-gitcafe: https://git.coding.net/dengxiaowu/dengxiaowu.git,master
-</code></pre><h3 id="2-三个基本的部署命令"><a href="#2-三个基本的部署命令" class="headerlink" title="2.三个基本的部署命令"></a>2.三个基本的部署命令</h3><pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre><h3 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3.域名解析"></a>3.域名解析</h3><p>我是在万网购买的域名，万网里的NDS解析是收费的，所以可以选择DSNlop或者Cloudxns 免费域名解析平台！注意域名要实名认证！<br>注意：<br>我用的是Cloudxns，比较稳定，还可以监控，总体来说非常不错！github.io 的部署解析后记得要在source/需要创建一个CNAME文件，填入自己个人的域名(不需要加上http)！但是我部署了coding，域名老是解析失败，后来停掉了。以后要解决这个问题。</p>
-
+        <p>前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。<br>几个基本的说明：</p>
+<h3 id="1-基本命令："><a href="#1-基本命令：" class="headerlink" title="1.基本命令："></a>1.基本命令：</h3><pre><code>crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。
+crontab -r : 删除目前的时程表
+crontab -l : 列出目前的时程表
+crontab file -u user-用指定的文件替代目前的crontab。
+</code></pre><h3 id="2-crontab-的格式说明：基本格式-："><a href="#2-crontab-的格式说明：基本格式-：" class="headerlink" title="2. crontab 的格式说明：基本格式 ："></a>2. crontab 的格式说明：基本格式 ：</h3><pre><code>※　　※　　※　　※ 　 ※ 　command
+分　 时　 日　 月　 周　 命令
+第1列表示分钟1～59 每分钟用～～ ～表示
+第2列表示小时1～23（0表示0点）
+第3列表示日期1～31
+第4列表示月份1～12
+第5列标识号星期0～6（0表示星期天）
+第6列要运行的命令
+crontab文件的一些例子：
+30 21 ※ ※ ※ /usr/local/etc/rc.d/lighttpd restart
+</code></pre><p>上面的例子表示每晚的21:30重启apache。</p>
+<h3 id="3-项目例子"><a href="#3-项目例子" class="headerlink" title="3.项目例子:"></a>3.项目例子:</h3><pre><code>php /data/web/service.snippetnews.com.ph/dev/D0.0.10/cli/index.php PushMsg index &gt;&gt; /data/logs/PushMsg.log 2&gt;&amp;1(日志位置)
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/04/建博客心得/" data-id="cj16h73b40004ssosoh3ii4xv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/" data-id="cj16h73an0001ssosij07k7b0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -112,20 +120,15 @@ hexo deploy
     
 <nav id="article-nav">
   
-    <a href="/2017/04/04/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/04/mac install yaf/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Hello World
+          mac install yaf
         
       </div>
     </a>
   
-  
-    <a href="/2017/04/04/git开发使用及部署/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">git开发使用及部署</div>
-    </a>
   
 </nav>
 
