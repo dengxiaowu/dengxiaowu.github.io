@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PHP基础一 | DXWu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PHP的基础主要是我自己在换工作求职阶段，在网上整理的一些常见的基础细节问题，自己记录下来，当是笔记。有空去看看。也希望能帮到大家。 1. 变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？isset() unset() empty() 2. 什么是可变变量？一个变量的变量名可以动态的设置和使用。 $a = ‘hello’ , $$a = ‘world’, ${$a">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP基础一">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/PHP基础一/index.html">
+<meta property="og:site_name" content="DXWu">
+<meta property="og:description" content="PHP的基础主要是我自己在换工作求职阶段，在网上整理的一些常见的基础细节问题，自己记录下来，当是笔记。有空去看看。也希望能帮到大家。 1. 变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？isset() unset() empty() 2. 什么是可变变量？一个变量的变量名可以动态的设置和使用。 $a = ‘hello’ , $$a = ‘world’, ${$a">
+<meta property="og:updated_time" content="2017-04-06T14:20:35.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP基础一">
+<meta name="twitter:description" content="PHP的基础主要是我自己在换工作求职阶段，在网上整理的一些常见的基础细节问题，自己记录下来，当是笔记。有空去看看。也希望能帮到大家。 1. 变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？isset() unset() empty() 2. 什么是可变变量？一个变量的变量名可以动态的设置和使用。 $a = ‘hello’ , $$a = ‘world’, ${$a">
+  
+    <link rel="alternate" href="/atom.xml" title="DXWu" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DXWu</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">个人技术学习博客,一个为喜欢的东西而执着的Coder!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP基础一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/06/PHP基础一/" class="article-date">
+  <time datetime="2017-04-06T14:14:49.739Z" itemprop="datePublished">2017-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP基础一
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PHP的基础主要是我自己在换工作求职阶段，在网上整理的一些常见的基础细节问题，自己记录下来，当是笔记。有空去看看。也希望能帮到大家。</p>
+<h3 id="1-变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？"><a href="#1-变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？" class="headerlink" title="1. 变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？"></a>1. 变量如何定义？如何检查变量是否定义？如何删除一个变量？判断一个变量是否为空的函数？</h3><p>isset()</p>
+<p>unset()</p>
+<p>empty()</p>
+<h3 id="2-什么是可变变量？"><a href="#2-什么是可变变量？" class="headerlink" title="2. 什么是可变变量？"></a>2. 什么是可变变量？</h3><p>一个变量的变量名可以动态的设置和使用。</p>
+<p>$a = ‘hello’ , $$a = ‘world’, ${$a}=hello world</p>
+<h3 id="3-变量赋值方式有哪几种？"><a href="#3-变量赋值方式有哪几种？" class="headerlink" title="3. 变量赋值方式有哪几种？"></a>3. 变量赋值方式有哪几种？</h3><p>1）直接赋值</p>
+<p>2）变量间赋值</p>
+<p>3）引用赋值</p>
+<h3 id="4-引用和拷贝有什么区别？"><a href="#4-引用和拷贝有什么区别？" class="headerlink" title="4. 引用和拷贝有什么区别？"></a>4. 引用和拷贝有什么区别？</h3><p>拷贝是将原来的变量内容复制下来，拷贝后的变量与原来的变量使用各自的内存，互不干扰。</p>
+<p>引用相当于是变量的别名，其实就是用不同的名字访问同一个变量内容。当改变其中一个变量的值时，另一个也跟着发生变化。</p>
+<h3 id="5-php中变量有哪些基本数据类型？"><a href="#5-php中变量有哪些基本数据类型？" class="headerlink" title="5. php中变量有哪些基本数据类型？"></a>5. php中变量有哪些基本数据类型？</h3><p>php支持8种原始数据类型。</p>
+<p>包括：</p>
+<p>四种标量类型（布尔型boolean，整型interger，浮点型float/double , 字符串string）</p>
+<p>两种复合类型(数组array ， 对象object)</p>
+<p>两种特殊类型（资源resource，NULL）</p>
+<h3 id="6-其它类型转换为boolean类型时，哪些被认为是false？"><a href="#6-其它类型转换为boolean类型时，哪些被认为是false？" class="headerlink" title="6. 其它类型转换为boolean类型时，哪些被认为是false？"></a>6. 其它类型转换为boolean类型时，哪些被认为是false？</h3><p>布尔值false，整型值0， 浮点型值0.0， 空白字符串， 字符串’0’, 空数组，特殊数据类型NULL, 没有设定的变量。</p>
+<p>empty()函数在哪些情况下返回true？</p>
+<p>布尔值false，</p>
+<p>整型值0， </p>
+<p>浮点型值0.0， </p>
+<p>空白字符串， </p>
+<p>字符串’0’, </p>
+<p>array()空数组，</p>
+<p>特殊数据类型NULL, </p>
+<p>没有任何属性的对象，</p>
+<p>没有赋值的变量。</p>
+<h3 id="7-如果定义了一个变量-a-但是没有赋初始值"><a href="#7-如果定义了一个变量-a-但是没有赋初始值" class="headerlink" title="7. 如果定义了一个变量$a ,但是没有赋初始值"></a>7. 如果定义了一个变量$a ,但是没有赋初始值</h3><p>那么$a==0吗？ </p>
+<p>$a==false吗？ </p>
+<p>$a==’’吗？</p>
+<p>$a==NULL吗？</p>
+<p>$a===NULL吗？ 答：echo=&gt;什么都没有 , var_dump=&gt;NULL</p>
+<p>empty($b)==true吗？———————————— echo=&gt;1 , var_dump=&gt;bool(true) </p>
+<p>此时如果输出$a++是多少？——————— echo=&gt;什么都没有 , var_dump=&gt;NULL</p>
+<p>如果输出++$a又是多少？————————— echo=&gt;1 , var_dump=&gt;int(1)</p>
+<h3 id="8-字符串怎么转成整数，有几种方法？怎么实现？"><a href="#8-字符串怎么转成整数，有几种方法？怎么实现？" class="headerlink" title="8. 字符串怎么转成整数，有几种方法？怎么实现？"></a>8. 字符串怎么转成整数，有几种方法？怎么实现？</h3><p>强制类型转换: (整型)字符串变量名;</p>
+<p>直接转换：settype(字符串变量,整型);</p>
+<p>intval(字符串变量);</p>
+<h3 id="9-标量数据和数组的最大区别是什么？"><a href="#9-标量数据和数组的最大区别是什么？" class="headerlink" title="9. 标量数据和数组的最大区别是什么？"></a>9. 标量数据和数组的最大区别是什么？</h3><p>一个标量只能存放一个数据，而数组可以存放多个数据。</p>
+<h3 id="10-常量如何定义-如何检测一个常量是否被定义？常量的值只能是哪些数据类型？"><a href="#10-常量如何定义-如何检测一个常量是否被定义？常量的值只能是哪些数据类型？" class="headerlink" title="10. 常量如何定义? 如何检测一个常量是否被定义？常量的值只能是哪些数据类型？"></a>10. 常量如何定义? 如何检测一个常量是否被定义？常量的值只能是哪些数据类型？</h3><p>define()//定义常量 , defined()//检查常量是否定义</p>
+<p>常量的值只能是标量类型的数据。</p>
+<h3 id="11-常量分为系统内置常量和自定义常量。请说出最常见的几个系统内置常量？"><a href="#11-常量分为系统内置常量和自定义常量。请说出最常见的几个系统内置常量？" class="headerlink" title="11. 常量分为系统内置常量和自定义常量。请说出最常见的几个系统内置常量？"></a>11. 常量分为系统内置常量和自定义常量。请说出最常见的几个系统内置常量？</h3><p><strong>FILE</strong> , <strong>LINE</strong> , PHP_OS , PHP_VERSION</p>
+<h3 id="12-如果定义了两个相同的常量，前者和后者哪个起作用？"><a href="#12-如果定义了两个相同的常量，前者和后者哪个起作用？" class="headerlink" title="12. 如果定义了两个相同的常量，前者和后者哪个起作用？"></a>12. 如果定义了两个相同的常量，前者和后者哪个起作用？</h3><p>前者起作用，因为常量一旦定义就不能被重新定义或者取消定义。</p>
+<h3 id="13-常量和变量有哪些区别？"><a href="#13-常量和变量有哪些区别？" class="headerlink" title="13. 常量和变量有哪些区别？"></a>13. 常量和变量有哪些区别？</h3><p>1）常量前没有$符号；</p>
+<p>2）常量只能通过define()定义，而不能通过赋值语句定义；</p>
+<p>3）常量可以在任何地方定义和访问，而变量有全局和局部之分；</p>
+<p>4）常量一旦定义就不能被重新定义或者取消定义，而变量而通过赋值方式重新定义；</p>
+<p>5）常量的值只能是标量数据，而变量的数据库类型有8种原始数据类型。</p>
+<h3 id="14-PHP中常用的几个预定义的全局数组变量是哪些？"><a href="#14-PHP中常用的几个预定义的全局数组变量是哪些？" class="headerlink" title="14. PHP中常用的几个预定义的全局数组变量是哪些？"></a>14. PHP中常用的几个预定义的全局数组变量是哪些？</h3><p>有9大预定义的内置数组变量：</p>
+<p>$_POST, $_GET, $_REQUEST, $_SESSION, $_COOKIE, $_FILES，$_SERVER, $_ENV, $GLOBALS</p>
+<h3 id="15-在实际开发中，常量最常用于哪些地方？"><a href="#15-在实际开发中，常量最常用于哪些地方？" class="headerlink" title="15. 在实际开发中，常量最常用于哪些地方？"></a>15. 在实际开发中，常量最常用于哪些地方？</h3><p>1）连接数据库的信息定义成常量，如数据库服务器的用户名、密码、数据库名、主机名；</p>
+<p>2）将站点的部分路径定义成常量，如web绝对路径，smarty的安装路径，model、view或者controller的文件夹路径；</p>
+<p>3）网站的公共信息，如网站名称，网站关键词等信息。</p>
+<h3 id="16-函数的优越性有哪些？"><a href="#16-函数的优越性有哪些？" class="headerlink" title="16. 函数的优越性有哪些？"></a>16. 函数的优越性有哪些？</h3><p>提高程序的可维护性</p>
+<p>提高软件的可靠性</p>
+<p>提高程序的可重用性</p>
+<p>提高程序的开发效率</p>
+<h3 id="17-如何定义一个函数？函数名区分大小写吗？"><a href="#17-如何定义一个函数？函数名区分大小写吗？" class="headerlink" title="17. 如何定义一个函数？函数名区分大小写吗？"></a>17. 如何定义一个函数？函数名区分大小写吗？</h3><p>1）使用 function 关键字；</p>
+<p>2）函数命名规则和变量一样，以字母或者下划线开头，而不能以数字开头；</p>
+<p>3）函数名不区分大小写；</p>
+<p>4）函数名不可以使用已经声明过的或者系统自建的函数名称。</p>
+<h3 id="18-什么是变量的能见度-或者-说是变量作用域？"><a href="#18-什么是变量的能见度-或者-说是变量作用域？" class="headerlink" title="18. 什么是变量的能见度 或者 说是变量作用域？"></a>18. 什么是变量的能见度 或者 说是变量作用域？</h3><p>就是变量在程序中的可作用范围。根据变量的能见度，变量分为局部变量和全局变量。</p>
+<h3 id="19-什么是局部变量和全局变量？函数内是否可以直接调用全局变量？"><a href="#19-什么是局部变量和全局变量？函数内是否可以直接调用全局变量？" class="headerlink" title="19. 什么是局部变量和全局变量？函数内是否可以直接调用全局变量？"></a>19. 什么是局部变量和全局变量？函数内是否可以直接调用全局变量？</h3><p>局部变量是函数内部定义的变量，其作用域是所在的函数。如果函数外还有一个跟局部变量名字一样的变量，</p>
+<p>程序会认为它们两个是完全不同的两个变量。当退出函数的时候，其中的局部变量就同时被清除。</p>
+<p>全局变量是定义在所有函数以外的变量，其作用域是整个php文件，但是在用户自定义的函数内部是无法使用的。</p>
+<p>如果一定要在用户自定义的函数内部使用全局变量，那么就需要使用global关键字声明。</p>
+<p>也就是说如果在函数内的变量前加上golbal来修饰，那么函数内部就可以访问到这个全局变量，</p>
+<p>不仅可以利用这个全局变量进行运算而且可以对这个全局变量进行重新赋值。</p>
+<p>全局变量还可以使用 $GLOBALS[‘var’] 来调用。</p>
+<h3 id="20-global关键词如何使用？预定义的全局变量数组-GLOBALS如何使用？"><a href="#20-global关键词如何使用？预定义的全局变量数组-GLOBALS如何使用？" class="headerlink" title="20. global关键词如何使用？预定义的全局变量数组$GLOBALS如何使用？"></a>20. global关键词如何使用？预定义的全局变量数组$GLOBALS如何使用？</h3><h3 id="21-什么是静态变量？"><a href="#21-什么是静态变量？" class="headerlink" title="21. 什么是静态变量？"></a>21. 什么是静态变量？</h3><p>如果一个函数内定义的变量前使用关键字static来声明，那么该变量就是静态变量。</p>
+<p>一般函数内的变量在函数调用结束后，其存储的数据将被清除，所占的内存空间也被释放。而使用静态变量时，</p>
+<p>该变量会在函数第一次被调用时被初始化，初始化后该变量也不会被清除，当再次调用该函数时，这个静态变量</p>
+<p>不再被初始化，而能保存上次函数执行完后的值。可以说静态变量在所有对该函数的调用之间共享。</p>
+<h3 id="22-php中函数传递参数的方式有哪些？两者有什么区别？"><a href="#22-php中函数传递参数的方式有哪些？两者有什么区别？" class="headerlink" title="22. php中函数传递参数的方式有哪些？两者有什么区别？"></a>22. php中函数传递参数的方式有哪些？两者有什么区别？</h3><p>按值传递和按地址传递（或按引用传递）</p>
+<p>(1)按值传递: 待传递的变量，与传递给函数之后的变量是存储在不同的空间中。所以函数体内对</p>
+<p>该变量值做的修改，不影响原本的变量值。</p>
+<p>(2)按地址传递: 使用 &amp; 符号，表明该参数是以地址的方式传递值。并不会将主程序中的指定数值或目标变量传递给函数，</p>
+<p>而是把该数值或变量的内存储存区块地址导入函数之中，所以函数体内的该变量和主程序中的该变量在内存</p>
+<p>中是同一个。函数体做的修改，直接影响到函数体外部的该变量的值。</p>
+<h3 id="23-什么是递归函数？如何进行递归调用？"><a href="#23-什么是递归函数？如何进行递归调用？" class="headerlink" title="23. 什么是递归函数？如何进行递归调用？"></a>23. 什么是递归函数？如何进行递归调用？</h3><p>递归函数其实就是调用自身的函数，但是必须满足以下两个条件：</p>
+<p>1）在每一次调用自身时，必须是更接近于最终结果；</p>
+<p>2）必须有一个确定的递归终止条件，不会造成死循环。</p>
+<p>举例说明：</p>
+<p>在实际工作中往往会在遍历文件夹的时候使用。</p>
+<p>如果有个例子是希望获取到目录windows下所有的文件，那么先遍历windows目录，如果发现其中还有文件夹，那么就会调用自身，继续往下寻找，依次类推，</p>
+<p>直到遍历到再也没有文件夹为止，这也就是意味着遍历出来了所有的文件。</p>
+<h3 id="24-判断一个函数是否存在？"><a href="#24-判断一个函数是否存在？" class="headerlink" title="24. 判断一个函数是否存在？"></a>24. 判断一个函数是否存在？</h3><p>function_exists( string $function_name ) 如果存在，返回true, 不存在则返回 false。</p>
+<h3 id="25-func-和-func-之间有什么区别？"><a href="#25-func-和-func-之间有什么区别？" class="headerlink" title="25. func()和@func()之间有什么区别？"></a>25. func()和@func()之间有什么区别？</h3><p>第二个函数调用失败不会报错，第一个会报错</p>
+<h3 id="26-include-和require-函数的用法和区别是什么？include-once-和require-once-呢？"><a href="#26-include-和require-函数的用法和区别是什么？include-once-和require-once-呢？" class="headerlink" title="26. include()和require()函数的用法和区别是什么？include_once()和require_once()呢？"></a>26. include()和require()函数的用法和区别是什么？include_once()和require_once()呢？</h3><p>include和require出现错误后的错误级别不一样</p>
+<p>include_once()和require_once()在加载之前要判断是否已经导入</p>
+<h3 id="27-说出前置-和后置-的区别？"><a href="#27-说出前置-和后置-的区别？" class="headerlink" title="27. 说出前置++和后置++的区别？"></a>27. 说出前置++和后置++的区别？</h3><p>前置++是先将变量增加1，然后在将值赋值给原来的变量；++$i</p>
+<p>后置++是先返回变量的当前值，然后再将变量的当前值增加1.$i++</p>
+<h3 id="28-字符串运算符“-”与算术运算符“-”有什么区别？"><a href="#28-字符串运算符“-”与算术运算符“-”有什么区别？" class="headerlink" title="28. 字符串运算符“.”与算术运算符“+”有什么区别？"></a>28. 字符串运算符“.”与算术运算符“+”有什么区别？</h3><p>当“a”“b”之间使用.时认为是连字符。如果两者间是+的时候php会认为是一次运算。</p>
+<p>1）如果+号两边的字符串是数字组成的，那么会将字符串自动转为整型；</p>
+<p>2）如果+号两边是纯粹的字母，那么会输出0；</p>
+<p>3）如果+号两边的字符串是以数字开头的，那么会截取字符串开头的数字，然后进行运算。</p>
+<h3 id="29-什么是三目（或三元）运算符？"><a href="#29-什么是三目（或三元）运算符？" class="headerlink" title="29. 什么是三目（或三元）运算符？"></a>29. 什么是三目（或三元）运算符？</h3><p>根据一个表达式的结果在另两个表达式中选择一个。</p>
+<p>例如: ($a==true) ? ‘good’:’bad’;</p>
+<h3 id="30-控制流程语句有哪些？"><a href="#30-控制流程语句有哪些？" class="headerlink" title="30. 控制流程语句有哪些？"></a>30. 控制流程语句有哪些？</h3><p>1：三种程序结构 顺序结构、分支结构、循环结构</p>
+<p>2：分支： if/esle/esleif/ switch/case/default</p>
+<p>3: switch 需要注意的：</p>
+<p>case子句中的常量可以是整型、字符串型常量、 或者常量表达式，不允许是变量。</p>
+<p>同一个switch子句中，case的值不能相同，否则只能取到首次出现case中的值。</p>
+<p>4: 循环 for while do…while</p>
+<p>do…while 后面必须加入分号结尾。</p>
+<p>while 和 do…while 的区别</p>
+<p>5：break 和 continue 的区别。</p>
+<p>break可以终止循环。</p>
+<p>continue没有break强大，只能终止本次循环而进入到下一次循环中。</p>
+<h3 id="31-数组的概念是什么？数组根据索引分为哪两种，如何区分？数组的赋值方式有哪两种？"><a href="#31-数组的概念是什么？数组根据索引分为哪两种，如何区分？数组的赋值方式有哪两种？" class="headerlink" title="31. 数组的概念是什么？数组根据索引分为哪两种，如何区分？数组的赋值方式有哪两种？"></a>31. 数组的概念是什么？数组根据索引分为哪两种，如何区分？数组的赋值方式有哪两种？</h3><p>数组是一个可以存储一组或一系列数值的变量（复合型变量）</p>
+<p>索引数组（索引值为数字，以0开始）和关联数组（以字符串作为索引值）</p>
+<p>数组的赋值方式有哪两种？</p>
+<p>数组的声明方式主要有两种。</p>
+<p>1.通过array()函数声明数组；</p>
+<p>可以通过key=&gt;value的方式分别定义索引和值，也可以不定义数组的索引下标，只给出数组的元素值。</p>
+<p>2.直接为数组元素赋值,不需要调用array()函数。例如：</p>
+<p>$arr[0] = 1;</p>
+<p>$arr[1] = 2;</p>
+<p>特别注意：</p>
+<p>数组的下标如果是等价于整数的字符串值（但不能以0开头），则会被当作整数对待。</p>
+<p>例如： $array[3] 与 $array[‘3’] 引用的是相同的一个元素，而 $array[‘03’] 引用的则就是另外的一个元素了。</p>
+<h3 id="32-数组如何遍历？"><a href="#32-数组如何遍历？" class="headerlink" title="32.数组如何遍历？"></a>32.数组如何遍历？</h3><p>①for循环</p>
+<p>②foreach循环 ，这是最常用的遍历方式。用法如下：foreach($arr as $key=&gt;$value){}</p>
+<p>③list each 和while 配合起来循环</p>
+<h3 id="33-foeach数组的时候指针是如何指向的？list-each-while-循环数组的时候指针如何指向的呢？"><a href="#33-foeach数组的时候指针是如何指向的？list-each-while-循环数组的时候指针如何指向的呢？" class="headerlink" title="33. foeach数组的时候指针是如何指向的？list()/each()/while()循环数组的时候指针如何指向的呢？"></a>33. foeach数组的时候指针是如何指向的？list()/each()/while()循环数组的时候指针如何指向的呢？</h3><p>当foreach开始执行的时候，数组内部的指针会自动指向第一个单元。因为foreach所操作的是指定数组的拷贝，而不是该数组本身。</p>
+<p>而each()一个数组后，数组指针将停留在数组中的下一个单元或者碰到数组结尾时停留在最后一个单元。如果要再次使用each()遍历数组，必须要使用reset().</p>
+<p>reset()将数组的内部指针倒回到第一个单元并返回第一个数组单元的值。</p>
+<h3 id="34-如何计算数组长度（或者说计算数组中所有元素的个数）？字符串怎么取长度？"><a href="#34-如何计算数组长度（或者说计算数组中所有元素的个数）？字符串怎么取长度？" class="headerlink" title="34. 如何计算数组长度（或者说计算数组中所有元素的个数）？字符串怎么取长度？"></a>34. 如何计算数组长度（或者说计算数组中所有元素的个数）？字符串怎么取长度？</h3><p>count() – 计算数组中的元素个数。</p>
+<p>可以使用count(数组名)或者count(数组名,1),如果有第二个参数，并且是数字1，则表示递归统计数组元素的个数。</p>
+<p>如果第二个参数是数字0，则等同于只有一个参数的count()函数。</p>
+<p>sizeof() – count() 的别名</p>
+<p>字符串：strlen()、mb_strlen();</p>
+<h3 id="35-数组中相关的常用函数有哪些？"><a href="#35-数组中相关的常用函数有哪些？" class="headerlink" title="35. 数组中相关的常用函数有哪些？"></a>35. 数组中相关的常用函数有哪些？</h3><p>1） count –（sizeof别名）— 计算数组中的单元数目或对象中的属性个数 </p>
+<p>例如：int count ( mixed $var [, int $mode ] ) $var 通常都是数组类型，任何其它类型都只有一个单元。$mode 默认值为0. 1为开启递归地对数组计数</p>
+<p>2） in_array ( mixed $needle , array $haystack [, bool $strict ] ) — 检查数组中是否存在某个值。</p>
+<p>如果 needle 是字符串，则比较是区分大小写的。</p>
+<p>如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。</p>
+<p>3） array_merge(array $array1 [, array $array2 [, array $… ]] ) 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。 </p>
+<p>特别注意：如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。 </p>
+<p>如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引</p>
+<p>4） 数组与字符串之间的转换</p>
+<p>(1)explode ( string $separator , string $string [, int $limit ] ) 使用一个分隔字符来分隔一个字符串。</p>
+<p>(2)implode ( string $glue , array $arr ) 使用一个连接符将数组中的每个单元连接为一个字符串。</p>
+<p>join 为 implode 的别名</p>
+<p>5） sort(array &amp;$array [, int $sort_flags ]) — 对数组按照值排序，当本函数结束时数组单元将被从最低到最高重新安排。</p>
+<h3 id="36-数组合并函数array-merge-和数组加法运算-arr-arr2-的区别是什么？"><a href="#36-数组合并函数array-merge-和数组加法运算-arr-arr2-的区别是什么？" class="headerlink" title="36. 数组合并函数array_merge()和数组加法运算$arr + $arr2 的区别是什么？"></a>36. 数组合并函数array_merge()和数组加法运算$arr + $arr2 的区别是什么？</h3><p>array_merge()-&gt;使用array_merge()，如果是关联数组合并，如果数组的键名相同，那么后面的值将覆盖前者；如果是数字索引数组合并，则不覆盖，而是</p>
+<p>后者附加到前者后面。</p>
+<p>“+”-&gt;使用数组加法运算，与array_merge()不同，加法运算不管是关联数组还是数字索引数组，都是将相同键名的的值舍弃，</p>
+<p>也就是只保留首次出现该键名的元素，后来的具有相同键名的元素都不会被加进来。</p>
+<h3 id="37-字符串定义的时候单引号和双引号有什么区别？"><a href="#37-字符串定义的时候单引号和双引号有什么区别？" class="headerlink" title="37. 字符串定义的时候单引号和双引号有什么区别？"></a>37. 字符串定义的时候单引号和双引号有什么区别？</h3><p>单引号内部的变量不会执行<br>双引号会执行</p>
+<h3 id="38-echo-print-print-r-的区别？"><a href="#38-echo-print-print-r-的区别？" class="headerlink" title="38. echo(),print(),print_r()的区别？"></a>38. echo(),print(),print_r()的区别？</h3><p>(1)echo 是语法，Output one or more strings，没有返回值；</p>
+<p>(2)print 是函数，不能输出数组和对象，Output a string，print有返回值；</p>
+<p>(3)print_r 是函数，可以输出数组。print_r是个比较有意思的函数，可以输出stirng、int、float、</p>
+<p>array、object等，输出array时会用结构表示，print_r输出成功时返回true；而且print_r可以通过print_r($str,true)来，使print_r不输出而返回print_r处理后的值。此外，对于echo和print，基本以使用echo居多，因为其效率比print要高。</p>
+<h3 id="39-按照功能分类说说都有哪些字符串处理函数？这些函数的作用是什么？"><a href="#39-按照功能分类说说都有哪些字符串处理函数？这些函数的作用是什么？" class="headerlink" title="39. 按照功能分类说说都有哪些字符串处理函数？这些函数的作用是什么？"></a>39. 按照功能分类说说都有哪些字符串处理函数？这些函数的作用是什么？</h3><p>A. 字符串输出函数</p>
+<p>(1)echo $a,$b,$c……; 是一个语言结构，而不是一个真正的函数。</p>
+<p>(2)print($a) 本函数输出字符串。若成功则返回 1，失败返回 0</p>
+<p>(3)print_r($a)</p>
+<p>(4)var_dump($a); 能输出类型、长度、值</p>
+<p>B. 去除字符串首尾空格的函数： trim ltrim rtrim（别名：chop） 使用第二个参数，还可以去除指定的字符。</p>
+<p>C. 转义字符串函数：addslashes()</p>
+<p>D. 获取字符串长度的函数：strlen()</p>
+<p>E. 截取字符串长度的的函数：substr()</p>
+<p>F. 检索字符串函数： strstr() , strpos()</p>
+<p>G. 替换字符串函数：str_replace()</p>
+<h3 id="40-请给出以下问题的正确答案？"><a href="#40-请给出以下问题的正确答案？" class="headerlink" title="40. 请给出以下问题的正确答案？"></a>40. 请给出以下问题的正确答案？</h3><p>1).$arr = array(‘james’, ‘tom’, ‘symfony’);请将$arr数组的值用’,’分割并合并成字符串输出？</p>
+<p>echo implode(‘,’,$arr);</p>
+<p>2).$str = ‘jack,james,tom,symfony’; 请将$str用’,’分割，并把分割后的值放到$arr数组中？</p>
+<p>$arr = explode(‘,’,$str);</p>
+<p>3).$arr = array(3,7,2,1,’d’,’abc’); 请将$arr按照从大到小的顺序排序，并保持其键值不变？</p>
+<p>arsort($arr); print_r($arr);</p>
+<p>4).$mail = “gaofei@163.com”; 请将此邮箱的域(163.com)取出来并打印，看最多能写出几种方法？</p>
+<p>echo strstr($mail,’163’);</p>
+<p>echo substr($mail,7);</p>
+<p>$arr = explode(“@”,$mail); echo $arr[1];</p>
+<p>5). 如果有一个字符串，该字符串是“123，234，345，”。请问如何切割掉这个字符串最后一个逗号？</p>
+<p>6). 获取随机数的函数有哪几个？mt_rand() 和 rand()哪个执行速度快？</p>
+<h3 id="41-页面字符出现乱码，怎么解决"><a href="#41-页面字符出现乱码，怎么解决" class="headerlink" title="41.页面字符出现乱码，怎么解决?"></a>41.页面字符出现乱码，怎么解决?</h3><p>1.首先考虑当前文件是不是设置了字符集。查看是不是meta标签中写了charset，如果是php页面还可以看看是不是</p>
+<p>在header()函数中指定了charset；</p>
+<p>例如：</p>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<p>header(“content-type:text/html;charset=utf-8”);</p>
+<p>2.如果设置了字符集（也就是charset），那么判断当前文件保存的编码格式是否跟页面设置的字符集保持一致，</p>
+<p>两者必须保持统一；</p>
+<p>3.如果涉及到从数据库提取数据，那么判断数据库查询时的字符集是否跟当前页面设置的字符集一致，两者必须统一，</p>
+<p>例如：mysql_query(“set names utf8”)。</p>
+<h3 id="42-正则表达式是什么？php中有哪些常用的跟正则相关的函数？请写出一个email的正则，中国手机号码和座机号码的正则表达式？"><a href="#42-正则表达式是什么？php中有哪些常用的跟正则相关的函数？请写出一个email的正则，中国手机号码和座机号码的正则表达式？" class="headerlink" title="42. 正则表达式是什么？php中有哪些常用的跟正则相关的函数？请写出一个email的正则，中国手机号码和座机号码的正则表达式？"></a>42. 正则表达式是什么？php中有哪些常用的跟正则相关的函数？请写出一个email的正则，中国手机号码和座机号码的正则表达式？</h3><p>正则表达式是用于描述字符排列模式的一种语法规则。正则表达式也叫做模式表达式。</p>
+<p>网站开发中正则表达式最常用于表单提交信息前的客户端验证。</p>
+<p>比如验证用户名是否输入正确，密码输入是否符合要求，email、手机号码等信息的输入是否合法。</p>
+<p>在php中正则表达式主要用于字符串的分割、匹配、查找和替换操作。</p>
+<p>preg系列函数可以处理。具体有以下几个：</p>
+<p>string preg_quote ( string str [, string delimiter] )</p>
+<p>转义正则表达式字符 正则表达式的特殊字符包括：. \ + * ? [ ^ ] $ ( ) { } = ! &lt; &gt; | :。</p>
+<p>preg_replace – 执行正则表达式的搜索和替换</p>
+<p>mixed preg_replace ( mixed pattern, mixed replacement, mixed subject [, int limit] )</p>
+<p>preg_replace_callback – 用回调函数执行正则表达式的搜索和替换</p>
+<p>mixed preg_replace_callback ( mixed pattern, callback callback, mixed subject [, int limit] )</p>
+<p>preg_split – 用正则表达式分割字符串</p>
+<p>array preg_split ( string pattern, string subject [, int limit [, int flags]] )</p>
+<h3 id="43-如果想过滤掉某个字符串中所有的html标记使用哪个函数？"><a href="#43-如果想过滤掉某个字符串中所有的html标记使用哪个函数？" class="headerlink" title="43. 如果想过滤掉某个字符串中所有的html标记使用哪个函数？"></a>43. 如果想过滤掉某个字符串中所有的html标记使用哪个函数？</h3><p>htmlspecialchars</p>
+<h3 id="44-preg-replace-和-str-ireplace-两个函数在使用上有什么不同？preg-split-和split-函数如何使用？"><a href="#44-preg-replace-和-str-ireplace-两个函数在使用上有什么不同？preg-split-和split-函数如何使用？" class="headerlink" title="44. preg_replace()和 str_ireplace()两个函数在使用上有什么不同？preg_split()和split()函数如何使用？"></a>44. preg_replace()和 str_ireplace()两个函数在使用上有什么不同？preg_split()和split()函数如何使用？</h3><h3 id="45-获取当前时间戳的函数主要有哪些？用PHP打印出今天的时间，格式是2010-12-10-22-21-21？"><a href="#45-获取当前时间戳的函数主要有哪些？用PHP打印出今天的时间，格式是2010-12-10-22-21-21？" class="headerlink" title="45. 获取当前时间戳的函数主要有哪些？用PHP打印出今天的时间，格式是2010-12-10 22:21:21？"></a>45. 获取当前时间戳的函数主要有哪些？用PHP打印出今天的时间，格式是2010-12-10 22:21:21？</h3><p>用PHP打印出前一天的时间格式是2010-12-10 22:21:21？如何把2010-12-25 10:30:25变成unix时间戳？</p>
+<p>echo date (“Y-m-d H:i:s” ,strtotime(‘-1,days’)); </p>
+<p>date(‘Y-m-d H:i:s’,time());</p>
+<p>$unix_time = strtotime(“2009-9-2 10:30:25”);//变成unix时间戳</p>
+<p>echo date(“Y-m-d H:i:s”,$unix_time);//格式化为正常时间格式</p>
+<h3 id="46-在url中用get传值的时候，若中文出现乱码，应该用哪个函数对中文进行编码？"><a href="#46-在url中用get传值的时候，若中文出现乱码，应该用哪个函数对中文进行编码？" class="headerlink" title="46. 在url中用get传值的时候，若中文出现乱码，应该用哪个函数对中文进行编码？"></a>46. 在url中用get传值的时候，若中文出现乱码，应该用哪个函数对中文进行编码？</h3><p>用户在网站表单提交数据的时候，为了防止脚本攻击（比如用户输入<script>alert（111）；</script>），php端接收数据的时候，应该如何处理？</p>
+<p>使用urlencode()对中文进行编码，使用urldecode()来解码。 </p>
+<p>使用htmlspecialchars($_POST[‘title’])来过滤表单传参就可以避免脚本攻击。</p>
+<h3 id="47-连接数据库操作的步骤是什么？每一步的返回值是什么数据类型？尤其是mysql-query-返回什么数据类型？"><a href="#47-连接数据库操作的步骤是什么？每一步的返回值是什么数据类型？尤其是mysql-query-返回什么数据类型？" class="headerlink" title="47. 连接数据库操作的步骤是什么？每一步的返回值是什么数据类型？尤其是mysql_query()返回什么数据类型？"></a>47. 连接数据库操作的步骤是什么？每一步的返回值是什么数据类型？尤其是mysql_query()返回什么数据类型？</h3><h3 id="48-说说mysql-fetch-row-和mysql-fetch-assoc-和mysql-fetch-array之间有什么区别？"><a href="#48-说说mysql-fetch-row-和mysql-fetch-assoc-和mysql-fetch-array之间有什么区别？" class="headerlink" title="48. 说说mysql_fetch_row() 和mysql_fetch_assoc()和mysql_fetch_array之间有什么区别？"></a>48. 说说mysql_fetch_row() 和mysql_fetch_assoc()和mysql_fetch_array之间有什么区别？</h3><p>第一个是返回结果集中的一行作为索引数组，第二个是返回关联数组，而第三个既可以返回索引数组也可以返回关联数组，取决于它的第二个参数 MYSQL_BOTH MYSQL_NUM MYSQL_ASSOC 默认为MYSQL_BOTH</p>
+<p>$sql =”select * from table1”;</p>
+<p>$result = mysql_query($sql);</p>
+<p>mysql_fetch_array($result, MYSQL_NUM);</p>
+<h3 id="49-请说出目前学过的返回是资源的函数？"><a href="#49-请说出目前学过的返回是资源的函数？" class="headerlink" title="49. 请说出目前学过的返回是资源的函数？"></a>49. 请说出目前学过的返回是资源的函数？</h3><p>答： mysql_connect();</p>
+<p>mysql_query();只有这执行select的时候成功，才返回资源，失败返回FALSE</p>
+<p>fopen();</p>
+<h3 id="50-打开、关闭文件分别是什么函数？-文件读写是什么函数？删除文件是哪个函数？"><a href="#50-打开、关闭文件分别是什么函数？-文件读写是什么函数？删除文件是哪个函数？" class="headerlink" title="50. 打开、关闭文件分别是什么函数？ 文件读写是什么函数？删除文件是哪个函数？"></a>50. 打开、关闭文件分别是什么函数？ 文件读写是什么函数？删除文件是哪个函数？</h3><p>fopen()</p>
+<p>fclose() - 关闭一个已打开的文件指针</p>
+<p>fgets() - 从文件指针中读取一行<br>fread() - 读取文件（可安全用于二进制文件）<br>fwrite() - 写入文件（可安全用于二进制文件）</p>
+<p>判断一个文件是否存在是哪个函数？新建目录是哪个函数？</p>
+<p>is_file() 函数检查指定的文件名是否是正常的文件。</p>
+<p>mkdir() 新建目录</p>
+<h3 id="51-文件上传需要注意哪些细节？怎么把文件保存到指定目录？怎么避免上传文件重名问题？"><a href="#51-文件上传需要注意哪些细节？怎么把文件保存到指定目录？怎么避免上传文件重名问题？" class="headerlink" title="51. 文件上传需要注意哪些细节？怎么把文件保存到指定目录？怎么避免上传文件重名问题？"></a>51. 文件上传需要注意哪些细节？怎么把文件保存到指定目录？怎么避免上传文件重名问题？</h3><p>1.首现要在php.ini中开启文件上传；</p>
+<p>2.在php.ini中有一个允许上传的最大值，默认是2MB。必要的时候可以更改；</p>
+<p>3.上传表单一定要记住在form标签中写上enctype=”multipart/form-data”；</p>
+<ol>
+<li><p>提交方式 method 必须是 post；</p>
+</li>
+<li><p>设定 type=”file” 的表单控件；</p>
+</li>
+</ol>
+<p>6.要注意上传文件的大小MAX_FILE_SIZE、文件类型是否符合要求，上传后存放的路径是否存在。</p>
+<p>可以通过上传的文件名获取到文件后缀，然后使用时间戳+文件后缀的方式为文件重新命名，这样就避免了重名。</p>
+<p>可以自己设置上传文件的保存目录，与文件名拼凑形成一个文件路径，使用move_uploaded_file()，就可以完成</p>
+<p>将文件保存到指定目录。</p>
+<h3 id="52-FILES是几维数组？第一维和第二维的索引下标分别是什么？批量上传文件的时候需要注意什么？"><a href="#52-FILES是几维数组？第一维和第二维的索引下标分别是什么？批量上传文件的时候需要注意什么？" class="headerlink" title="52. $_FILES是几维数组？第一维和第二维的索引下标分别是什么？批量上传文件的时候需要注意什么？"></a>52. $_FILES是几维数组？第一维和第二维的索引下标分别是什么？批量上传文件的时候需要注意什么？</h3><p>二维数组。第一维是上传控件的name，二维下标分别为name/type/tmp_name/size/error.</p>
+<h3 id="53-header-函数主要的功能有哪些？使用过程中注意什么？"><a href="#53-header-函数主要的功能有哪些？使用过程中注意什么？" class="headerlink" title="53. header()函数主要的功能有哪些？使用过程中注意什么？"></a>53. header()函数主要的功能有哪些？使用过程中注意什么？</h3><p>答：</p>
+<h3 id="54-文件下载的时候如果使用header-函数"><a href="#54-文件下载的时候如果使用header-函数" class="headerlink" title="54. 文件下载的时候如果使用header()函数?"></a>54. 文件下载的时候如果使用header()函数?</h3><p>答：header(“content-type: application/octet-stream;charset=UTF-8”); //在这里加utf-8和在上面定义有什么区别？、？？</p>
+<p>header(“accept-ranges: bytes”);</p>
+<p>header(“accept-length: “.filesize($filedir.$filename));</p>
+<p>header(“content-disposition: attachment; filename=”.$filedir.$filename);</p>
+<h3 id="55-什么是ajax？ajax的原理是什么？ajax的核心技术是什么？ajax的优缺点是什么？"><a href="#55-什么是ajax？ajax的原理是什么？ajax的核心技术是什么？ajax的优缺点是什么？" class="headerlink" title="55. 什么是ajax？ajax的原理是什么？ajax的核心技术是什么？ajax的优缺点是什么？"></a>55. 什么是ajax？ajax的原理是什么？ajax的核心技术是什么？ajax的优缺点是什么？</h3><p>ajax是asynchronous javascript and xml的缩写，是javascript、xml、css、DOM等多个技术的组合。’$’是jQuery的别名.</p>
+<p>页面中用户的请求通过ajax引擎异步地与服务器进行通信，服务器将请求的结果返回给这个ajax引擎，</p>
+<p>最后由这个ajax引擎来决定将返回的数据显示到页面中的指定位置。Ajax最终实现了在一个页面的指定位置可以加载另一个页面所有的输出内容。</p>
+<p>这样就实现了一个静态页面也能获取到数据库中的返回数据信息了。所以ajax技术实现了一个静态网页在不刷新整个页面的情况下与服务器通信，</p>
+<p>减少了用户等待时间，同时也从而降低了网络流量，增强了客户体验的友好程度。</p>
+<p>Ajax的优点是：</p>
+<ol>
+<li><p>减轻了服务器端负担，将一部分以前由服务器负担的工作转移到客户端执行，利用客户端闲置的资源进行处理；</p>
+</li>
+<li><p>在只局部刷新的情况下更新页面，增加了页面反应速度，使用户体验更友好。</p>
+</li>
+</ol>
+<p>Ajax的缺点是不利于seo推广优化，因为搜索引擎无法直接访问到ajax请求的内容。</p>
+<p>ajax的核心技术是XMLHttpRequest，它是javascript中的一个对象。</p>
+<h3 id="56-jquery是什么？jquery简化ajax后的方法有哪些？"><a href="#56-jquery是什么？jquery简化ajax后的方法有哪些？" class="headerlink" title="56. jquery是什么？jquery简化ajax后的方法有哪些？"></a>56. jquery是什么？jquery简化ajax后的方法有哪些？</h3><p>jQuery是Javascript的一种框架。</p>
+<p>$.get(),$.post(),$.ajax()。$是jQuery对象的别名。</p>
+<p>代码如下：</p>
+<p>$.post(异步访问的url地址 , {‘参数名’ : 参数值} , function(msg){</p>
+<p>$(“#result”).html(msg);</p>
+<p>});</p>
+<p>$.get(异步访问的url地址 , {‘参数名’ : 参数值} , function(msg){</p>
+<p>$(“#result”).html(msg);</p>
+<p>});</p>
+<p>$.ajax({</p>
+<p>type: “post”,</p>
+<p>url: loadUrl,</p>
+<p>cache:false,</p>
+<p>data: “参数名=” + 参数值,</p>
+<p>success: function(msg) {</p>
+<p>$(“#result”).html(msg);</p>
+<p>}</p>
+<p>});</p>
+<h3 id="57-什么是会话控制？"><a href="#57-什么是会话控制？" class="headerlink" title="57. 什么是会话控制？"></a>57. 什么是会话控制？</h3><p>简单地说会话控制就是跟踪和识别用户信息的机制。会话控制的思想就是能够在网站中跟踪一个变量，通过这个变量，</p>
+<p>系统能识别出相应的用户信息，根据这个用户信息可以得知用户权限，从而展示给用户适合于其相应权限的页面内容。</p>
+<p>目前最主要的会话跟踪方式有cookie，session。</p>
+<ol>
+<li>会话跟踪的基本步骤</li>
+</ol>
+<p>1)．访问与当前请求相关的会话对象</p>
+<p>2)．查找与会话相关的信息</p>
+<p>3)．存储会话信息</p>
+<p>4)．废弃会话数据</p>
+<h3 id="59-使用cookie的注意事项有哪些？"><a href="#59-使用cookie的注意事项有哪些？" class="headerlink" title="59. 使用cookie的注意事项有哪些？"></a>59. 使用cookie的注意事项有哪些？</h3><p>1） setcookie()之前不可以有任何页面输出，就是空格，空白行也不可以；</p>
+<p>2） setcookie()后，在当前页面调用$_COOKIE[‘cookiename’]不会有输出，必须刷新或到下一个页面才可以看到cookie值；</p>
+<p>3） 不同的浏览器对cookie处理不同，客户端可以禁用cookie，浏览器也可以闲置cookie的数量，一个浏览器能创建的cookie数量最多300个，并且每个不可以超过4kb，</p>
+<p>每个web站点能设置的cookie总数不能超过20个。</p>
+<p>4） cookie是保存在客户端的，用户禁用了cookie，那么setcookie就不会起作用了。所以不可以过度依赖cookie。</p>
+<h3 id="60-使用session的时候，通过什么来表示当前用户，从而与其他用户进行区分？"><a href="#60-使用session的时候，通过什么来表示当前用户，从而与其他用户进行区分？" class="headerlink" title="60. 使用session的时候，通过什么来表示当前用户，从而与其他用户进行区分？"></a>60. 使用session的时候，通过什么来表示当前用户，从而与其他用户进行区分？</h3><p>sessionid，通过session_id()函数可以取得当前的session_id。</p>
+<ol>
+<li>session和cookie的使用步骤分别是什么？什么是sesssion和cookie的生命周期？session和cookie的区别是什么？</li>
+</ol>
+<p>cookie是保存在客户端机器的，对于未设置过期时间的cookie，cookie值会保存在机器的内存中，只要关闭浏览器则</p>
+<p>cookie自动消失。如果设置了cookie的过期时间，那么浏览器会把cookie以文本文件的形式保存到硬盘中，</p>
+<p>当再次打开浏览器时cookie值依然有效。</p>
+<p>session是把用户需要存储的信息保存在服务器端。每个用户的session信息就像是键值对一样存储在服务器端，</p>
+<p>其中的键就是sessionid，而值就是用户需要存储信息。服务器就是通过sessionid来区分存储的session信息是</p>
+<p>哪个用户的。</p>
+<p>两者最大的区别就是session存储在服务器端，而cookie是在客户端。session安全性更高，而cookie安全性弱。</p>
+<p>session在web开发中具有非常重要的份量。它可以将用户正确登录后的信息记录到服务器的内存中，当用户以此身份</p>
+<p>访问网站的管理后台时，无需再次登录即可得到身份确认。而没有正确登录的用户则不分配session空间，即便输入了</p>
+<p>管理后台的访问地址也不能看到页面内容。通过session确定了用户对页面的操作权限。</p>
+<p>使用session的步骤：</p>
+<ol>
+<li>启动session：</li>
+</ol>
+<p>使用session_start()函数来启动。</p>
+<ol>
+<li>注册会话：</li>
+</ol>
+<p>直接给$_SESSION数组添加元素即可。</p>
+<ol>
+<li>使用会话：</li>
+</ol>
+<p>判断session是否为空或者是否已经注册，如果已经存在则像普通数组使用即可。</p>
+<ol>
+<li>删除会话：</li>
+</ol>
+<p>1.可以使用unset删除单个session；</p>
+<p>2.使用$_SESSION=array()的方式，一次注销所有的会话变量；</p>
+<p>3.使用session_destroy()函数来彻底销毁session。</p>
+<p>cookie怎么使用？</p>
+<ol>
+<li><p>记录用户访问的部分信息</p>
+</li>
+<li><p>在页面间传递变量</p>
+</li>
+<li><p>将所查看的internet页存储在cookies临时文件夹中，可以提高以后的浏览速度。</p>
+</li>
+</ol>
+<p>创建cookie：</p>
+<p>setcookie(string cookiename , string value , int expire);</p>
+<p>读取cookie：</p>
+<p>通过超级全局数组$_COOKIE来读取浏览器端的cookie的值。</p>
+<p>删除cookie：有两种方法</p>
+<p>1.手工删除方法：</p>
+<p>右击浏览器属性，可以看到删除cookies，执行操作即可将所有cookie文件删除。</p>
+<p>2.setcookie()方法：</p>
+<p>跟设置cookie的方法一样，不过此时将cookie的值设置为空，有效时间为0或小于当前时间戳。</p>
+<h3 id="62-如何设置一个cookie的名字为username-值为jack，并且让此cookie一周后失效？"><a href="#62-如何设置一个cookie的名字为username-值为jack，并且让此cookie一周后失效？" class="headerlink" title="62. 如何设置一个cookie的名字为username,值为jack，并且让此cookie一周后失效？"></a>62. 如何设置一个cookie的名字为username,值为jack，并且让此cookie一周后失效？</h3><p>一个浏览器最多可以产生多少个cookie，每个cookie文件最大不能超过多少？</p>
+<p>setcookie(‘username’,’jack’,time()+7<em>24</em>3600);</p>
+<p>最多可以产生20个cookie，每个最多不超过4K</p>
+<h3 id="63-设置或读取session之前，需要做什么？"><a href="#63-设置或读取session之前，需要做什么？" class="headerlink" title="63. 设置或读取session之前，需要做什么？"></a>63. 设置或读取session之前，需要做什么？</h3><p>可以直接在php.ini中开启session.auto_start = 1或者在页面头部用session_start();</p>
+<p>开启session，session_start()前面不能有任何输出，包括空行。</p>
+<h3 id="64-在实际开发中，session在哪些场合使用？"><a href="#64-在实际开发中，session在哪些场合使用？" class="headerlink" title="64. 在实际开发中，session在哪些场合使用？"></a>64. 在实际开发中，session在哪些场合使用？</h3><p>session用来存储用户登录信息和用在跨页面传值。</p>
+<p>1）常用在用户登录成功后，将用户登录信息赋值给session；</p>
+<p>2）用在验证码图片生成，当随机码生成后赋值给session。</p>
+<h3 id="65-注销session会话的形式有几种？"><a href="#65-注销session会话的形式有几种？" class="headerlink" title="65. 注销session会话的形式有几种？"></a>65. 注销session会话的形式有几种？</h3><p>unset() </p>
+<p>$_SESSION=array();</p>
+<p>session_destroy();</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/06/PHP基础一/" data-id="cj16i8grf0001z8osykphotgx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/06/linux定时任务的设置 crontab/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux定时任务的设置 crontab
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/06/PHP基础二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP基础二</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/06/php7的重大新特性/">php7的重大新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/Nginx 和 Apache 各有什么优缺点/">Nginx 和 Apache 各有什么优缺点？</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/PHP基础二/">PHP基础二</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/PHP基础一/">PHP基础一</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/linux定时任务的设置 crontab/">linux定时任务的设置 crontab</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 dengxiaowu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

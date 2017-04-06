@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>linux定时任务的设置 crontab | DXWu</title>
+  <title>php7的重大新特性 | DXWu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
+  <meta name="description" content="新特性预览1.ZEND引擎升级到Zend Engine 3，也就是所谓的PHP NG 2.增加抽象语法树，使编译更加科学 3.64位的INT支持 4.统一的变量语法 5.原声的TLS - 对扩展开发有意义 6.一致性foreach循环的改进 7.新增 &amp;lt;=&amp;gt;、**、?? 、\u{xxxx}操作符 8.增加了返回类型的声明 9.增加了标量类型的声明 10.核心错误可以通过异常捕获了 11">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux定时任务的设置 crontab">
-<meta property="og:url" content="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/index.html">
+<meta property="og:title" content="php7的重大新特性">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/php7的重大新特性/index.html">
 <meta property="og:site_name" content="DXWu">
-<meta property="og:description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
-<meta property="og:updated_time" content="2017-04-06T14:05:19.652Z">
+<meta property="og:description" content="新特性预览1.ZEND引擎升级到Zend Engine 3，也就是所谓的PHP NG 2.增加抽象语法树，使编译更加科学 3.64位的INT支持 4.统一的变量语法 5.原声的TLS - 对扩展开发有意义 6.一致性foreach循环的改进 7.新增 &amp;lt;=&amp;gt;、**、?? 、\u{xxxx}操作符 8.增加了返回类型的声明 9.增加了标量类型的声明 10.核心错误可以通过异常捕获了 11">
+<meta property="og:updated_time" content="2017-04-06T14:34:19.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux定时任务的设置 crontab">
-<meta name="twitter:description" content="前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。几个基本的说明： 1.基本命令：crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。 crontab -r : 删除目前的时程表 crontab -l : 列出目前的时程表 crontab file -u user-用指定的文件替代目前的crontab。">
+<meta name="twitter:title" content="php7的重大新特性">
+<meta name="twitter:description" content="新特性预览1.ZEND引擎升级到Zend Engine 3，也就是所谓的PHP NG 2.增加抽象语法树，使编译更加科学 3.64位的INT支持 4.统一的变量语法 5.原声的TLS - 对扩展开发有意义 6.一致性foreach循环的改进 7.新增 &amp;lt;=&amp;gt;、**、?? 、\u{xxxx}操作符 8.增加了返回类型的声明 9.增加了标量类型的声明 10.核心错误可以通过异常捕获了 11">
   
     <link rel="alternate" href="/atom.xml" title="DXWu" type="application/atom+xml">
   
@@ -68,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-linux定时任务的设置 crontab" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-php7的重大新特性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/06/linux定时任务的设置 crontab/" class="article-date">
-  <time datetime="2017-04-06T14:01:40.289Z" itemprop="datePublished">2017-04-06</time>
+    <a href="/2017/04/06/php7的重大新特性/" class="article-date">
+  <time datetime="2017-04-06T14:31:51.863Z" itemprop="datePublished">2017-04-06</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux定时任务的设置 crontab
+      php7的重大新特性
     </h1>
   
 
@@ -90,28 +90,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前端时间因为项目的需求，要写一些定时执行的任务，就用到了Linux的crontab。其原理就是定时执行我们规定要的文件。<br>几个基本的说明：</p>
-<h3 id="1-基本命令："><a href="#1-基本命令：" class="headerlink" title="1.基本命令："></a>1.基本命令：</h3><pre><code>crontab -e : 执行文字编辑器来设定时程表（编辑crontab）。
-crontab -r : 删除目前的时程表
-crontab -l : 列出目前的时程表
-crontab file -u user-用指定的文件替代目前的crontab。
-</code></pre><h3 id="2-crontab-的格式说明：基本格式-："><a href="#2-crontab-的格式说明：基本格式-：" class="headerlink" title="2. crontab 的格式说明：基本格式 ："></a>2. crontab 的格式说明：基本格式 ：</h3><pre><code>※　　※　　※　　※ 　 ※ 　command
-分　 时　 日　 月　 周　 命令
-第1列表示分钟1～59 每分钟用～～ ～表示
-第2列表示小时1～23（0表示0点）
-第3列表示日期1～31
-第4列表示月份1～12
-第5列标识号星期0～6（0表示星期天）
-第6列要运行的命令
-crontab文件的一些例子：
-30 21 ※ ※ ※ /usr/local/etc/rc.d/lighttpd restart
-</code></pre><p>上面的例子表示每晚的21:30重启apache。</p>
-<h3 id="3-项目例子"><a href="#3-项目例子" class="headerlink" title="3.项目例子:"></a>3.项目例子:</h3><pre><code>php /data/web/service.snippetnews.com.ph/dev/D0.0.10/cli/index.php PushMsg index &gt;&gt; /data/logs/PushMsg.log 2&gt;&amp;1(日志位置)
-</code></pre>
+        <h3 id="新特性预览"><a href="#新特性预览" class="headerlink" title="新特性预览"></a>新特性预览</h3><pre><code>1.ZEND引擎升级到Zend Engine 3，也就是所谓的PHP NG
+2.增加抽象语法树，使编译更加科学
+3.64位的INT支持
+4.统一的变量语法
+5.原声的TLS - 对扩展开发有意义
+6.一致性foreach循环的改进
+7.新增 &lt;=&gt;、**、?? 、\u{xxxx}操作符
+8.增加了返回类型的声明
+9.增加了标量类型的声明
+10.核心错误可以通过异常捕获了
+11.增加了上下文敏感的词法分析
+</code></pre><h3 id="移除的一些特性"><a href="#移除的一些特性" class="headerlink" title="移除的一些特性"></a>移除的一些特性</h3><pre><code>1.移除一些旧的扩展，被移迁移到了PECL（例如：mysql）
+2.移除SAPIs的支持
+3.&lt;?和&lt;? language=“php”这样的标签被移除了
+4.16进制的字符串转换被废除了
+//PHP5
+&quot;0x10&quot; == &quot;16&quot;
+
+//PHP7
+&quot;0x10&quot; != &quot;16&quot;
+
+5.HTTP_RAW_POST_DATA移除了（可以使用php://input替代）
+6.静态函数里面不再支持通过一个不兼容的$this调用一个非静态的函数了
+$o = &amp; new className{}，不再支持这样的写法
+7.php.ini文件移除了#作为注释，统一用;去注释
+</code></pre><h3 id="一些行为的改变"><a href="#一些行为的改变" class="headerlink" title="一些行为的改变"></a>一些行为的改变</h3><pre><code>1.不在支持函数定义同名参数
+2.类型的同名构造函数不推荐使用了（目前没有移除，后续会移除）
+3.String、int、float等这些关键字不能被作为类名使用了
+4.func_get_args()获取的是当前变量的值
+</code></pre><p>原文章：<br><a href="http://www.jb51.net/article/73788.htm" target="_blank" rel="external">http://www.jb51.net/article/73788.htm</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/06/linux定时任务的设置 crontab/" data-id="cj16i8grr0005z8oso4q2t4w3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/06/php7的重大新特性/" data-id="cj16i8gry0007z8osdrkngidi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,20 +133,15 @@ crontab文件的一些例子：
     
 <nav id="article-nav">
   
-    <a href="/2017/04/04/mac install yaf/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/06/Nginx 和 Apache 各有什么优缺点/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          mac install yaf
+          Nginx 和 Apache 各有什么优缺点？
         
       </div>
     </a>
   
-  
-    <a href="/2017/04/06/PHP基础一/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">PHP基础一</div>
-    </a>
   
 </nav>
 
