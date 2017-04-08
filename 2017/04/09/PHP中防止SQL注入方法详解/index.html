@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
+<meta name="description" content="使用预处理语句和参数化查询。预处理语句和参数分别发送到数据库服务器进行解析，参数将会被当作普通字符处理。这种方式使得攻击者无法注入恶意的SQL。 你有两种选择来实现该方法： 1、使用PDO：代码如下: $stmt = $pdo-&amp;gt;prepare(&amp;apos;SELECT * FROM employees WHERE name = :name&amp;apos;);  $stmt-&amp;gt;execut">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git开发使用及部署">
-<meta property="og:url" content="http://yoursite.com/2017/04/04/git开发使用及部署/index.html">
+<meta property="og:title" content="PHP中防止SQL注入方法详解">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/PHP中防止SQL注入方法详解/index.html">
 <meta property="og:site_name" content="DXWu的学习博客">
-<meta property="og:description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
-<meta property="og:updated_time" content="2017-04-04T05:33:13.007Z">
+<meta property="og:description" content="使用预处理语句和参数化查询。预处理语句和参数分别发送到数据库服务器进行解析，参数将会被当作普通字符处理。这种方式使得攻击者无法注入恶意的SQL。 你有两种选择来实现该方法： 1、使用PDO：代码如下: $stmt = $pdo-&amp;gt;prepare(&amp;apos;SELECT * FROM employees WHERE name = :name&amp;apos;);  $stmt-&amp;gt;execut">
+<meta property="og:updated_time" content="2017-04-08T16:26:21.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git开发使用及部署">
-<meta name="twitter:description" content="记录在开发过程使用git的一些基本命令。 1.git 开发使用步骤git clone git urlgit clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git 开发分支: develop 进入到git目录 cd /git/xxxxxx 步骤：1.切换到develop分支git checkout develop 2.pull develop">
+<meta name="twitter:title" content="PHP中防止SQL注入方法详解">
+<meta name="twitter:description" content="使用预处理语句和参数化查询。预处理语句和参数分别发送到数据库服务器进行解析，参数将会被当作普通字符处理。这种方式使得攻击者无法注入恶意的SQL。 你有两种选择来实现该方法： 1、使用PDO：代码如下: $stmt = $pdo-&amp;gt;prepare(&amp;apos;SELECT * FROM employees WHERE name = :name&amp;apos;);  $stmt-&amp;gt;execut">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/04/git开发使用及部署/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/09/PHP中防止SQL注入方法详解/"/>
 
 
 
 
 
-  <title> git开发使用及部署 | DXWu的学习博客 </title>
+  <title> PHP中防止SQL注入方法详解 | DXWu的学习博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/git开发使用及部署/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/09/PHP中防止SQL注入方法详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="dengxiaowu">
@@ -299,7 +299,7 @@
             
             
               
-                git开发使用及部署
+                PHP中防止SQL注入方法详解
               
             
           </h1>
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T13:11:37+08:00">
-                2017-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-09T00:17:07+08:00">
+                2017-04-09
               </time>
             
 
@@ -350,45 +350,33 @@
       
 
       
-        <p>记录在开发过程使用git的一些基本命令。</p>
-<h3 id="1-git-开发使用步骤git-clone-git-url"><a href="#1-git-开发使用步骤git-clone-git-url" class="headerlink" title="1.git 开发使用步骤git clone git url"></a>1.git 开发使用步骤git clone git url</h3><pre><code>git clone ssh://XXX.bbtu.com@10.8.8.61:22/xxx.bbtu.com.git
-开发分支: develop
-进入到git目录
-cd /git/xxxxxx
-</code></pre><h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><h3 id="1-切换到develop分支"><a href="#1-切换到develop分支" class="headerlink" title="1.切换到develop分支"></a>1.切换到develop分支</h3><pre><code>git checkout develop
-</code></pre><h3 id="2-pull-develop-分支"><a href="#2-pull-develop-分支" class="headerlink" title="2.pull develop 分支"></a>2.pull develop 分支</h3><pre><code>git pull origin develop
-</code></pre><h3 id="3-创建新分支并切换到新分支"><a href="#3-创建新分支并切换到新分支" class="headerlink" title="3.创建新分支并切换到新分支"></a>3.创建新分支并切换到新分支</h3><pre><code>git branch new branch
-branch name 使用本次需要开发的功能命名，例如order
-git branch order-branch
-git checkout order-branch
-</code></pre><h3 id="4-在新分支中开发"><a href="#4-在新分支中开发" class="headerlink" title="4.在新分支中开发"></a>4.在新分支中开发</h3><h3 id="5-开发完成后跑测试用例"><a href="#5-开发完成后跑测试用例" class="headerlink" title="5.开发完成后跑测试用例"></a>5.开发完成后跑测试用例</h3><h3 id="6-commit-新分支git-commit-m-“开发项目描述”"><a href="#6-commit-新分支git-commit-m-“开发项目描述”" class="headerlink" title="6.commit 新分支git commit -m “开发项目描述”"></a>6.commit 新分支git commit -m “开发项目描述”</h3><h3 id="7-切换回develop分支"><a href="#7-切换回develop分支" class="headerlink" title="7.切换回develop分支"></a>7.切换回develop分支</h3><pre><code>git checkout develop
-</code></pre><h3 id="8-pull-develop-分支-获取其他开发提交的代码"><a href="#8-pull-develop-分支-获取其他开发提交的代码" class="headerlink" title="8.pull develop 分支(获取其他开发提交的代码)"></a>8.pull develop 分支(获取其他开发提交的代码)</h3><pre><code>git pull origin develop
-</code></pre><h3 id="9-合并新分支到develop分支，修改冲突部分"><a href="#9-合并新分支到develop分支，修改冲突部分" class="headerlink" title="9.合并新分支到develop分支，修改冲突部分"></a>9.合并新分支到develop分支，修改冲突部分</h3><pre><code>git merge new branch
-git merge order-branch
-</code></pre><h3 id="10-合并后跑测试用例（测试合并后代码）"><a href="#10-合并后跑测试用例（测试合并后代码）" class="headerlink" title="10.合并后跑测试用例（测试合并后代码）"></a>10.合并后跑测试用例（测试合并后代码）</h3><h3 id="11-commit-and-push"><a href="#11-commit-and-push" class="headerlink" title="11.commit and push"></a>11.commit and push</h3><pre><code>git add .
-git commit -m “merge xxxx”
-git push origin develop
-</code></pre><h2 id="2-部署完成一个要上线的版本，部署"><a href="#2-部署完成一个要上线的版本，部署" class="headerlink" title="2.部署完成一个要上线的版本，部署"></a>2.部署完成一个要上线的版本，部署</h2><h3 id="1-打taggit-tag-tag-name"><a href="#1-打taggit-tag-tag-name" class="headerlink" title="1.打taggit tag tag name"></a>1.打taggit tag tag name</h3><pre><code>git tag R1.3.50
-</code></pre><h3 id="2-推taggit"><a href="#2-推taggit" class="headerlink" title="2.推taggit"></a>2.推taggit</h3><pre><code>push origin tag name
-git push origin R1.3.50
-</code></pre><h3 id="3-重推tag删除已存在tag"><a href="#3-重推tag删除已存在tag" class="headerlink" title="3.重推tag删除已存在tag"></a>3.重推tag删除已存在tag</h3><pre><code>git tag -d tag name
-git push origin –delete tag tag name
-git tag -d R1.3.50
-git push origin –delete tag R1.3.50
-</code></pre><h3 id="4-重新打tag推tag"><a href="#4-重新打tag推tag" class="headerlink" title="4.重新打tag推tag"></a>4.重新打tag推tag</h3><pre><code>git tag R1.3.50
-git push origin R1.3.50
-</code></pre><h3 id="5-查看已存在tag"><a href="#5-查看已存在tag" class="headerlink" title="5.查看已存在tag"></a>5.查看已存在tag</h3><pre><code>git tag
-</code></pre><h2 id="3-已上release的项目需要"><a href="#3-已上release的项目需要" class="headerlink" title="3.已上release的项目需要"></a>3.已上release的项目需要</h2><pre><code>hot fix
-</code></pre><h3 id="1-获取对应版本的tag-代码"><a href="#1-获取对应版本的tag-代码" class="headerlink" title="1.获取对应版本的tag 代码"></a>1.获取对应版本的tag 代码</h3><pre><code>git checkout tag name
-git checkout R1.3.50
-创建hot fix分支,切换到
-hot fix 分支
-git branch hot-fix-branch
-git checkout hot-fix-branch
-</code></pre><h3 id="2-修改代码"><a href="#2-修改代码" class="headerlink" title="2.修改代码"></a>2.修改代码</h3><h3 id="3-提交代码"><a href="#3-提交代码" class="headerlink" title="3.提交代码"></a>3.提交代码</h3><pre><code>git commit -m “修改描述”
-在hot fix branch打tag,
-推tag部署到release
-把hot fix branch合拼到develop
+        <p>使用预处理语句和参数化查询。预处理语句和参数分别发送到数据库服务器进行解析，参数将会被当作普通字符处理。这种方式使得攻击者无法注入恶意的SQL。 你有两种选择来实现该方法：</p>
+<h3 id="1、使用PDO："><a href="#1、使用PDO：" class="headerlink" title="1、使用PDO："></a>1、使用PDO：</h3><p>代码如下:</p>
+<pre><code>$stmt = $pdo-&gt;prepare(&apos;SELECT * FROM employees WHERE name = :name&apos;);
+
+$stmt-&gt;execute(array(&apos;name&apos; =&gt; $name));
+
+foreach ($stmt as $row) {
+        // do something with $row
+}
+</code></pre><h3 id="2、使用mysqli："><a href="#2、使用mysqli：" class="headerlink" title="2、使用mysqli："></a>2、使用mysqli：</h3><p>代码如下:</p>
+<pre><code>$stmt = $dbConnection-&gt;prepare(&apos;SELECT * FROM employees WHERE name = ?&apos;);
+$stmt-&gt;bind_param(&apos;s&apos;, $name);
+
+$stmt-&gt;execute();
+
+$result = $stmt-&gt;get_result();
+while ($row = $result-&gt;fetch_assoc()) {
+    // do something with $row
+}
+</code></pre><h3 id="3-使用PDO"><a href="#3-使用PDO" class="headerlink" title="3.使用PDO"></a>3.使用PDO</h3><p>　　注意，在默认情况使用PDO并没有让MySQL数据库执行真正的预处理语句（原因见下文）。为了解决这个问题，你应该禁止PDO模拟预处理语句。一个正确使用PDO创建数据库连接的例子如下：<br>代码如下:</p>
+<pre><code>$dbConnection = new PDO(&apos;mysql:dbname=dbtest;host=127.0.0.1;charset=utf8&apos;, &apos;user&apos;, &apos;pass&apos;);
+$dbConnection-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+</code></pre><p>　　在上面的例子中，报错模式(ATTR_ERRMODE)并不是必须的，但建议加上它。这样，当发生致命错误(Fatal Error)时，脚本就不会停止运行，而是给了程序员一个捕获PDOExceptions的机会，以便对错误进行妥善处理。 然而，第一个setAttribute()调用是必须的，它禁止PDO模拟预处理语句，而使用真正的预处理语句，即有MySQL执行预处理语句。这能确保语句和参数在发送给MySQL之前没有被PHP处理过，这将使得攻击者无法注入恶意SQL。了解原因，可参考这篇博文：PDO防注入原理分析以及使用PDO的注意事项。 注意在老版本的PHP(&lt;5.3.6)，你无法通过在PDO的构造器的DSN上设置字符集，参考：silently ignored the charset parameter。</p>
+<p>　　当你将SQL语句发送给数据库服务器进行预处理和解析时发生了什么？通过指定占位符（一个?或者一个上面例子中命名的:name），告诉数据库引擎你想在哪里进行过滤。当你调用execute的时候，预处理语句将会与你指定的参数值结合。 关键点就在这里：参数的值是和经过解析的SQL语句结合到一起，而不是SQL字符串。SQL注入是通过触发脚本在构造SQL语句时包含恶意的字符串。所以，通过将SQL语句和参数分开，你防止了SQL注入的风险。任何你发送的参数的值都将被当作普通字符串，而不会被数据库服务器解析。回到上面的例子，如果$name变量的值为 ‘Sarah’; DELETE FROM employees ，那么实际的查询将是在 employees 中查找 name 字段值为 ‘Sarah’; DELETE FROM employees 的记录。 另一个使用预处理语句的好处是：如果你在同一次数据库连接会话中执行同样的语句许多次，它将只被解析一次，这可以提升一点执行速度。 如果你想问插入该如何做，请看下面这个例子（使用PDO）：<br>代码如下:</p>
+<pre><code>$preparedStatement = $db-&gt;prepare(&apos;INSERT INTO table (column) VALUES (:column)&apos;);
+$preparedStatement-&gt;execute(array(&apos;column&apos; =&gt; $unsafeValue));
 </code></pre>
       
     </div>
@@ -425,18 +413,14 @@ git checkout hot-fix-branch
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/04/mac install yaf/" rel="next" title="mac install yaf">
-                <i class="fa fa-chevron-left"></i> mac install yaf
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/04/建博客心得/" rel="prev" title="建博客心得">
-                建博客心得 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/06/对比MySQL，什么场景MongoDB更适用/" rel="prev" title="对比MySQL，什么场景MongoDB更适用">
+                对比MySQL，什么场景MongoDB更适用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -548,7 +532,7 @@ git checkout hot-fix-branch
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-git-开发使用步骤git-clone-git-url"><span class="nav-number">1.</span> <span class="nav-text">1.git 开发使用步骤git clone git url</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤："><span class="nav-number"></span> <span class="nav-text">步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-切换到develop分支"><span class="nav-number">1.</span> <span class="nav-text">1.切换到develop分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-pull-develop-分支"><span class="nav-number">2.</span> <span class="nav-text">2.pull develop 分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建新分支并切换到新分支"><span class="nav-number">3.</span> <span class="nav-text">3.创建新分支并切换到新分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-在新分支中开发"><span class="nav-number">4.</span> <span class="nav-text">4.在新分支中开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-开发完成后跑测试用例"><span class="nav-number">5.</span> <span class="nav-text">5.开发完成后跑测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-commit-新分支git-commit-m-“开发项目描述”"><span class="nav-number">6.</span> <span class="nav-text">6.commit 新分支git commit -m “开发项目描述”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-切换回develop分支"><span class="nav-number">7.</span> <span class="nav-text">7.切换回develop分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-pull-develop-分支-获取其他开发提交的代码"><span class="nav-number">8.</span> <span class="nav-text">8.pull develop 分支(获取其他开发提交的代码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-合并新分支到develop分支，修改冲突部分"><span class="nav-number">9.</span> <span class="nav-text">9.合并新分支到develop分支，修改冲突部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-合并后跑测试用例（测试合并后代码）"><span class="nav-number">10.</span> <span class="nav-text">10.合并后跑测试用例（测试合并后代码）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-commit-and-push"><span class="nav-number">11.</span> <span class="nav-text">11.commit and push</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-部署完成一个要上线的版本，部署"><span class="nav-number"></span> <span class="nav-text">2.部署完成一个要上线的版本，部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-打taggit-tag-tag-name"><span class="nav-number">1.</span> <span class="nav-text">1.打taggit tag tag name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-推taggit"><span class="nav-number">2.</span> <span class="nav-text">2.推taggit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-重推tag删除已存在tag"><span class="nav-number">3.</span> <span class="nav-text">3.重推tag删除已存在tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-重新打tag推tag"><span class="nav-number">4.</span> <span class="nav-text">4.重新打tag推tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-查看已存在tag"><span class="nav-number">5.</span> <span class="nav-text">5.查看已存在tag</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-已上release的项目需要"><span class="nav-number"></span> <span class="nav-text">3.已上release的项目需要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-获取对应版本的tag-代码"><span class="nav-number">1.</span> <span class="nav-text">1.获取对应版本的tag 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改代码"><span class="nav-number">2.</span> <span class="nav-text">2.修改代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提交代码"><span class="nav-number">3.</span> <span class="nav-text">3.提交代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、使用PDO："><span class="nav-number">1.</span> <span class="nav-text">1、使用PDO：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用mysqli："><span class="nav-number">2.</span> <span class="nav-text">2、使用mysqli：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用PDO"><span class="nav-number">3.</span> <span class="nav-text">3.使用PDO</span></a></li></ol></div>
             
 
           </div>

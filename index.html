@@ -275,6 +275,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/09/PHP中防止SQL注入方法详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="dengxiaowu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DXWu的学习博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/09/PHP中防止SQL注入方法详解/" itemprop="url">
+                  PHP中防止SQL注入方法详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-09T00:17:07+08:00">
+                2017-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用预处理语句和参数化查询。预处理语句和参数分别发送到数据库服务器进行解析，参数将会被当作普通字符处理。这种方式使得攻击者无法注入恶意的SQL。 你有两种选择来实现该方法：</p>
+<h3 id="1、使用PDO："><a href="#1、使用PDO：" class="headerlink" title="1、使用PDO："></a>1、使用PDO：</h3><p>代码如下:</p>
+<pre><code>$stmt = $pdo-&gt;prepare(&apos;SELECT * FROM employees WHERE name = :name&apos;);
+
+$stmt-&gt;execute(array(&apos;name&apos; =&gt; $name));
+
+foreach ($stmt as $row) {
+        // do something with $row
+}
+</code></pre><h3 id="2、使用mysqli："><a href="#2、使用mysqli：" class="headerlink" title="2、使用mysqli："></a>2、使用mysqli：</h3><p>代码如下:</p>
+<pre><code>$stmt = $dbConnection-&gt;prepare(&apos;SELECT * FROM employees WHERE name = ?&apos;);
+$stmt-&gt;bind_param(&apos;s&apos;, $name);
+
+$stmt-&gt;execute();
+
+$result = $stmt-&gt;get_result();
+while ($row = $result-&gt;fetch_assoc()) {
+    // do something with $row
+}
+</code></pre><h3 id="3-使用PDO"><a href="#3-使用PDO" class="headerlink" title="3.使用PDO"></a>3.使用PDO</h3><p>　　注意，在默认情况使用PDO并没有让MySQL数据库执行真正的预处理语句（原因见下文）。为了解决这个问题，你应该禁止PDO模拟预处理语句。一个正确使用PDO创建数据库连接的例子如下：<br>代码如下:</p>
+<pre><code>$dbConnection = new PDO(&apos;mysql:dbname=dbtest;host=127.0.0.1;charset=utf8&apos;, &apos;user&apos;, &apos;pass&apos;);
+$dbConnection-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+</code></pre><p>　　在上面的例子中，报错模式(ATTR_ERRMODE)并不是必须的，但建议加上它。这样，当发生致命错误(Fatal Error)时，脚本就不会停止运行，而是给了程序员一个捕获PDOExceptions的机会，以便对错误进行妥善处理。 然而，第一个setAttribute()调用是必须的，它禁止PDO模拟预处理语句，而使用真正的预处理语句，即有MySQL执行预处理语句。这能确保语句和参数在发送给MySQL之前没有被PHP处理过，这将使得攻击者无法注入恶意SQL。了解原因，可参考这篇博文：PDO防注入原理分析以及使用PDO的注意事项。 注意在老版本的PHP(&lt;5.3.6)，你无法通过在PDO的构造器的DSN上设置字符集，参考：silently ignored the charset parameter。</p>
+<p>　　当你将SQL语句发送给数据库服务器进行预处理和解析时发生了什么？通过指定占位符（一个?或者一个上面例子中命名的:name），告诉数据库引擎你想在哪里进行过滤。当你调用execute的时候，预处理语句将会与你指定的参数值结合。 关键点就在这里：参数的值是和经过解析的SQL语句结合到一起，而不是SQL字符串。SQL注入是通过触发脚本在构造SQL语句时包含恶意的字符串。所以，通过将SQL语句和参数分开，你防止了SQL注入的风险。任何你发送的参数的值都将被当作普通字符串，而不会被数据库服务器解析。回到上面的例子，如果$name变量的值为 ‘Sarah’; DELETE FROM employees ，那么实际的查询将是在 employees 中查找 name 字段值为 ‘Sarah’; DELETE FROM employees 的记录。 另一个使用预处理语句的好处是：如果你在同一次数据库连接会话中执行同样的语句许多次，它将只被解析一次，这可以提升一点执行速度。 如果你想问插入该如何做，请看下面这个例子（使用PDO）：<br>代码如下:</p>
+<pre><code>$preparedStatement = $db-&gt;prepare(&apos;INSERT INTO table (column) VALUES (:column)&apos;);
+$preparedStatement-&gt;execute(array(&apos;column&apos; =&gt; $unsafeValue));
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/06/对比MySQL，什么场景MongoDB更适用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2289,138 +2436,13 @@ hexo deploy
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="dengxiaowu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="DXWu的学习博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/04/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T11:31:48+08:00">
-                2017-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2463,7 +2485,7 @@ hexo deploy
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
